@@ -7,7 +7,7 @@
 
 declare (strict_types = 1);
 
-namespace CommandlineInstaller;
+namespace ExpressiveInstaller;
 
 use Composer\Composer;
 use Composer\Factory;
@@ -29,8 +29,8 @@ use RuntimeException;
  * Add this script to composer.json:
  *
  *  "scripts": {
- *      "pre-update-cmd": "CommandlineInstaller\\OptionalPackages::install",
- *      "pre-install-cmd": "CommandlineInstaller\\OptionalPackages::install"
+ *      "pre-update-cmd": "ExpressiveInstaller\\OptionalPackages::install",
+ *      "pre-install-cmd": "ExpressiveInstaller\\OptionalPackages::install"
  *  },
  */
 class OptionalPackages {
@@ -167,18 +167,14 @@ class OptionalPackages {
 
 		$installer->io->write('<info>Setting up optional packages</info>');
 
-		print_r($installer);
-
-/*
-$installer->setupDataAndCacheDir();
-$installer->removeDevDependencies();
-$installer->setInstallType($installer->requestInstallType());
-$installer->setupDefaultApp();
-$installer->promptForOptionalPackages();
-$installer->updateRootPackage();
-$installer->removeInstallerFromDefinition();
-$installer->finalizePackage();
- */
+		$installer->setupDataAndCacheDir();
+		$installer->removeDevDependencies();
+		$installer->setInstallType($installer->requestInstallType());
+		$installer->setupDefaultApp();
+		$installer->promptForOptionalPackages();
+		$installer->updateRootPackage();
+		$installer->removeInstallerFromDefinition();
+		$installer->finalizePackage();
 	}
 
 	public function __construct(IOInterface $io, Composer $composer, string $projectRoot = null) {
@@ -377,8 +373,8 @@ $installer->finalizePackage();
 		$this->io->write('<info>Remove installer</info>');
 
 		// Remove installer script autoloading rules
-		unset($this->composerDefinition['autoload']['psr-4']['CommandlineInstaller\\']);
-		unset($this->composerDefinition['autoload-dev']['psr-4']['CommandlineInstallerTest\\']);
+		unset($this->composerDefinition['autoload']['psr-4']['ExpressiveInstaller\\']);
+		unset($this->composerDefinition['autoload-dev']['psr-4']['ExpressiveInstallerTest\\']);
 
 		// Remove branch-alias
 		unset($this->composerDefinition['extra']['branch-alias']);
@@ -561,21 +557,21 @@ $installer->finalizePackage();
 		}
 
 		$this->recursiveRmdir($this->installerSource);
-		$this->recursiveRmdir($this->projectRoot . 'test/CommandlineInstallerTest');
+		$this->recursiveRmdir($this->projectRoot . 'test/ExpressiveInstallerTest');
 		$this->recursiveRmdir($this->projectRoot . 'docs');
 
 		$this->preparePhpunitConfig();
 	}
 
 	/**
-	 * Remove the CommandlineInstaller exclusion from the phpunit configuration
+	 * Remove the ExpressiveInstaller exclusion from the phpunit configuration
 	 *
 	 * @codeCoverageIgnore
 	 */
 	private function preparePhpunitConfig(): void{
 		$phpunitConfigFile = $this->projectRoot . 'phpunit.xml.dist';
 		$phpunitConfig = file_get_contents($phpunitConfigFile);
-		$phpunitConfig = $this->removeLinesContainingStrings(['exclude', 'CommandlineInstaller'], $phpunitConfig);
+		$phpunitConfig = $this->removeLinesContainingStrings(['exclude', 'ExpressiveInstaller'], $phpunitConfig);
 		file_put_contents($phpunitConfigFile, $phpunitConfig);
 	}
 
