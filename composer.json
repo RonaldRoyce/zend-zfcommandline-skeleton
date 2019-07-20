@@ -25,6 +25,12 @@
         "sort-packages": true
     },
     "extra": {
+        "zf": {
+            "component-whitelist": [
+                "zendframework/zend-expressive-fastroute",
+                "zendframework/zend-expressive-twigrenderer"
+            ]
+        }
     },
     "support": {
         "issues": "",
@@ -35,20 +41,25 @@
     },
     "require": {
         "php": "^7.1",
-        "zendframework/zend-component-installer": "^1.0 || ^0.7 || ^1.0.0-dev@dev",
-        "zendframework/zend-mvc": "^3.0.1",
-        "zfcampus/zf-development-mode": "^3.0",
-        "zendframework/zend-db": "^2.8.1",
-        "zendframework/zend-json": "^3.0",
-        "zendframework/zend-psr7bridge": "^0.2.2",
+        "doctrine/doctrine-orm-module": "^2.1",
+        "doctrine/migrations": "^2.1",
         "symfony/console": "^4.3",
         "symfony/event-dispatcher": "^4.3",
         "symfony/lock": "^4.3",
         "symfony/process": "^4.3",
-        "doctrine/doctrine-orm-module": "^2.1",
-        "doctrine/migrations": "^2.1",
+        "zendframework/zend-component-installer": "^2.1.1",
+        "zendframework/zend-config": "^3.3",
+        "zendframework/zend-config-aggregator": "^1.0",
+        "zendframework/zend-config-aggregator-modulemanager": "^1.0",
         "zendframework/zend-crypt": "^3.3",
-        "zendframework/zend-config": "^3.3"
+        "zendframework/zend-db": "^2.8.1",
+        "zendframework/zend-expressive-fastroute": "^3.0",
+        "zendframework/zend-expressive-twigrenderer": "^2.0",
+        "zendframework/zend-json": "^3.0",
+        "zendframework/zend-mvc": "^3.0.1",
+        "zendframework/zend-psr7bridge": "^0.2.2",
+        "zendframework/zend-servicemanager": "^3.3",
+        "zfcampus/zf-development-mode": "^3.0"
     },
     "require-dev": {
         "composer/composer": "^1.5",
@@ -82,7 +93,11 @@
             "CommandlineInstaller\\": "src/CommandInstaller/"
         }
     },
-
+    "autoload-dev": {
+        "psr-4": {
+            "AppTest\\": "test/AppTest/"
+        }
+    },
     "scripts": {
         "pre-install-cmd": "CommandlineInstaller\\OptionalPackages::install",
         "pre-update-cmd": "CommandlineInstaller\\OptionalPackages::install",
