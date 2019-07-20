@@ -1,20 +1,7 @@
-# Composer files
+.idea
 composer.phar
+composer.lock
+clover.xml
+coveralls-upload.json
+phpunit.xml
 vendor/
-
-# Local configs
-config/autoload/*.local.php
-
-# Binary gettext files
-*.mo
-
-# Data
-data/logs/
-data/cache/
-data/sessions/
-data/tmp/
-temp/
-
-# Legacy ZF1
-demos/
-extras/documentation
