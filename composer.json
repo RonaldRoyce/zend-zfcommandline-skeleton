@@ -32,13 +32,6 @@
             ]
         }
     },
-    "support": {
-        "issues": "",
-        "source": "",
-        "rss": "https://github.com/zendframework/zend-expressive-skeleton/releases.atom",
-        "slack": "https://zendframework-slack.herokuapp.com",
-        "forum": "https://discourse.zendframework.com/c/questions/expressive"
-    },
     "require": {
         "php": "^7.1",
         "doctrine/doctrine-orm-module": "^2.1",
