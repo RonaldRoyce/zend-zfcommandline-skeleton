@@ -83,7 +83,7 @@
         "psr-4": {
             "App\\": "src/App/src/",
     	    "RonaldRoyce\\Zfcommandline\\": "src/CommandlineInstaller/Command",
-            "CommandlineInstaller\\": "src/CommandInstaller/"
+            "CommandlineInstaller\\": "src/CommandlineInstaller/"
         }
     },
     "autoload-dev": {
