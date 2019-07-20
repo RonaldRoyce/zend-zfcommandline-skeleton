@@ -15,6 +15,12 @@
         "zendframework",
         "zfcommandline"
     ],
+    "repositories": [
+	     {
+	         "type": "vcs",
+	         "url": "https://github.com/ronaldroyce/zend-zfcommandline-skeleton" 
+	    }
+    ],
     "config": {
         "sort-packages": true
     },
