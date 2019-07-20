@@ -7,7 +7,7 @@
 
 declare (strict_types = 1);
 
-namespace ExpressiveInstaller;
+namespace CommandlineInstaller;
 
 use Composer\Composer;
 use Composer\Factory;
